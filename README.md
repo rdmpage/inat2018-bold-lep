@@ -26,6 +26,11 @@ sqlite3 inat.db ".read inat.sql"
 
 We can generate iNat subsets for Lepidoptera for use to generate the iNat 2018 model:
 
+```
+php subset.php
+```
+
+Given a trained mode we can use `test_inat.py` to evaluate the validation data, which outputs a CSV file with the top three hits for each image. The script `score.php` can be used to generate a simple HTM page showing the results.
  
 
 We can create a view that lists just the Lepidoptera.
