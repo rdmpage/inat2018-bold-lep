@@ -32,11 +32,28 @@ php subset.php
 
 Given a trained mode we can use `test_inat.py` to evaluate the validation data, which outputs a CSV file with the top three hits for each image. The script `score.php` can be used to generate a simple HTM page showing the results.
  
+### List Lepidoptera
 
-We can create a view that lists just the Lepidoptera.
+The following query gets a list of Lepidoptera in the iNat dataset:
 
+```SQL
+SELECT * FROM category WHERE `order` = "Lepidoptera";
+```
 
 ## BOLD data
 
-To evaluate the iNat 2018 model on BOLD data we need to create a subset of the BOLD data that only includes species in the iNat dataset, that is, only species that the model has been trained on.
+To evaluate the iNat 2018 model on BOLD data we need to create a subset of the BOLD data that only includes species in the iNat dataset, that is, only species that the model has been trained on. Using a local SQL database that combines data downloaded from BOLD and GBIF (to get the image URLs) we can generate a list of BOLD records for taxa that exist in the iNat 2018 dataset.
+
+```sql
+SELECT image.md5, image.license, image.url, image.name, inat.cat_name, inat.cat_id, inat.family 
+FROM inat 
+INNER JOIN barcode ON inat.cat_name = barcode.taxon 
+INNER JOIN image USING(processid);
+```
+
+This list is in `BOLD/bold-inat.tsv`.
+
+
+
+
 

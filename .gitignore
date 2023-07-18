@@ -2,7 +2,10 @@
 .DS_Store
 iNat/inat.db
 iNat/inat.db-journal
+iNat/inat.sql
 
 __pycache__
 
 *.tar
+
+BOLD/images
