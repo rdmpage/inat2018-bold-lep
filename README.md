@@ -55,5 +55,7 @@ This list is in `BOLD/bold-inat.tsv`.
 
 
 
+### Getting a subset of images
 
+The script `BOLD/extract.php` can be used to extract a subset of images for one or more categories (species).
 
