@@ -12,5 +12,26 @@ The training and validation datasets (`test2018.json` and `val2018.json`) contai
 
 Run `to_sql.php` to convert these files to SQL. Create a SQLIte database using `schema.sql`, then add the SQL files to create a simple database of the iNat 2018 data.
 
+```bash
+cd iNat
+sqlite3 inat.db < schema.sql 
+```
+
+Then populate (this can take a while):
+
+```bash
+php to_sql.php > inat.sql
+sqlite3 inat.db ".read inat.sql" 
+```
+
+We can generate iNat subsets for Lepidoptera for use to generate the iNat 2018 model:
+
+ 
+
+We can create a view that lists just the Lepidoptera.
+
 
 ## BOLD data
+
+To evaluate the iNat 2018 model on BOLD data we need to create a subset of the BOLD data that only includes species in the iNat dataset, that is, only species that the model has been trained on.
+
