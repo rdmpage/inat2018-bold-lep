@@ -35,15 +35,15 @@ class Params:
 	# Lepidoptera
     # set this to path of model to resume training
     resume = 'model_best.pth.tar'  
-    val_file   = 'iNat/val.json'
-    data_root  = '/Users/rpage/Library/CloudStorage/GoogleDrive-rdmpage@gmail.com/My Drive/iNat/'
+    val_file   = 'BOLD/val.json'
+    data_root  = '/Users/rpage/Library/CloudStorage/GoogleDrive-rdmpage@gmail.com/My Drive/iNat/BOLD/'
     
     # set evaluate to True to run the test set
     evaluate = True
     save_preds = True
     op_file_name = 'inat2018_test_preds.csv' # submission file
     if evaluate == True:
-        val_file = 'iNat/val.json'
+        val_file = 'BOLD/val.json'
 
 best_prec3 = 0.0  # store current best top 3
 

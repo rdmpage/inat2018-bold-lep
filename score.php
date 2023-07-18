@@ -2,9 +2,9 @@
 
 // Get result of validating data
 
-$image_basedir = '/Users/rpage/Library/CloudStorage/GoogleDrive-rdmpage@gmail.com/My Drive/iNat';
+$image_basedir = '/Users/rpage/Library/CloudStorage/GoogleDrive-rdmpage@gmail.com/My Drive/iNat/BOLD/';
 
-$test_filename   = 'iNat/val.json';
+$test_filename   = 'BOLD/val.json';
 $result_filename = 'inat2018_test_preds.csv';
 
 // Read data we are testing
