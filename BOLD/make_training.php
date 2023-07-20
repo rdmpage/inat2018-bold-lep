@@ -25,9 +25,6 @@ foreach ($obj->annotations as $annotation)
 
 print_r($categories);
 
-
-
-
 // training
 $training = new $obj;
 $training->info = $obj->info;
@@ -69,8 +66,6 @@ foreach ($obj->categories as $category)
 			}
 		}
 		
-		
-		
 		$training->categories[] = $category;	
 		$validation->categories[] = $category;	
 	}
@@ -85,11 +80,10 @@ foreach ($obj->annotations as $annotation)
 	{
 		$training->annotations[] = $annotation;
 	}
-	else
+	if (in_array($annotation->image_id, $validation_set))
 	{
 		$validation->annotations[] = $annotation;
-	}	
-
+	}
 }
 
 foreach ($obj->images as $image)
@@ -98,10 +92,10 @@ foreach ($obj->images as $image)
 	{
 		$training->images[] = $image;
 	}
-	else
+	if (in_array($image->id, $validation_set))
 	{
 		$validation->images[] = $image;
-	}	
+	}
 }
 
 //print_r($training);
