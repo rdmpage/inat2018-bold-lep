@@ -30,7 +30,7 @@ We can generate iNat subsets for Lepidoptera for use to generate the iNat 2018 m
 php subset.php
 ```
 
-Given a trained mode we can use `test_inat.py` to evaluate the validation data, which outputs a CSV file with the top three hits for each image. The script `score.php` can be used to generate a simple HTM page showing the results.
+Given a trained mode we can use `test_inat.py` to evaluate the validation data, which outputs a CSV file with the top three hits for each image. The script `score.php` can be used to generate a simple HTML page showing the results.
  
 ### List Lepidoptera
 
@@ -53,6 +53,15 @@ INNER JOIN image USING(processid);
 
 This list is in `BOLD/bold-inat.tsv`.
 
+We can also create a list of shared taxa:
+
+```sql
+SELECT DISTINCT inat.cat_name, inat.cat_id, inat.family 
+FROM inat 
+INNER JOIN barcode ON inat.cat_name = barcode.taxon 
+```
+
+This list is `shared_categories.tsv`.
 
 
 ### Getting a subset of images

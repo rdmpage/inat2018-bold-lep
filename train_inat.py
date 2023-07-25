@@ -22,7 +22,7 @@ class Params:
     # arch = 'inception_v3'
     num_classes = 8142
     workers = 8
-    epochs = 10
+    epochs = 30
     start_epoch = 0
     batch_size = 32  # might want to make smaller 
     lr = 0.0045
